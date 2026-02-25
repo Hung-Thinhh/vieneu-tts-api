@@ -86,7 +86,7 @@ PYTHONPATH=src .venv/bin/python run_api_server.py
 ```
 
 ### Triển khai qua Docker (Dokploy/Traefik):
-Dùng file `docker-compose.yml` có sẵn để proxy traffic từ Traefik vào port 8000 trên host qua `socat`.
+Dùng file `docker-compose.yml` có sẵn để proxy traffic từ Traefik vào port 23333 trên host qua `socat`.
 
 ---
 *VieNeu-TTS API - Optimized by Antigravity AI*

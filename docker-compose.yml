@@ -1,8 +1,8 @@
 services:
   vietneu-tts:
     image: alpine/socat
-    # Chuyển tiếp traffic từ Traefik → cổng 8000 trên máy chủ host
-    command: TCP-LISTEN:8000,fork,reuseaddr TCP:host-gateway:8000
+    # Chuyển tiếp traffic từ Traefik → cổng 23333 trên máy chủ host
+    command: TCP-LISTEN:23333,fork,reuseaddr TCP:host-gateway:23333
     extra_hosts:
       - "host-gateway:host-gateway"
     restart: always
@@ -14,7 +14,7 @@ services:
       - "traefik.http.routers.vieneutts-api.entrypoints=websecure"
       - "traefik.http.routers.vieneutts-api.tls.certresolver=letsencrypt"
       - "traefik.http.routers.vieneutts-api.service=vieneutts-api-svc"
-      - "traefik.http.services.vieneutts-api-svc.loadbalancer.server.port=8000"
+      - "traefik.http.services.vieneutts-api-svc.loadbalancer.server.port=23333"
 
 networks:
   dokploy-network:

@@ -6,23 +6,7 @@ Loading backbone from: pnnbao-ump/VieNeu-TTS-0.3B-q4-gguf on cpu ...
 Loading codec from: neuphonic/neucodec-onnx-decoder-int8 on cpu ...
    📢 Loaded 6 voices from voices.json
 ✅ Server API đã sẵn sàng! Các giọng có sẵn: ['Binh', 'Tuyen', 'Vinh', 'Doan', 'Ly', 'Ngoc']
-INFO:     Started server process [269847]
+INFO:     Started server process [283253]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-🎙 Giọng: Doan | Văn bản: 'Xin chào, đây là giọng nữ miền Nam nè!...'
-✅ Đã trả về file âm thanh thành công.
-INFO:     172.19.0.2:57166 - "POST /tts HTTP/1.1" 200 OK
-INFO:     172.19.0.2:57168 - "GET /robots.txt HTTP/1.1" 404 Not Found
-🎙 Giọng: Doan | Văn bản: 'Giá trị đầu tư tại khu đô thị phức hợp được nhân lên gấp bội...'
-✅ Đã trả về file âm thanh thành công.
-INFO:     172.19.0.2:57170 - "POST /tts HTTP/1.1" 200 OK
-🎙 Giọng: Doan | Văn bản: 'Giá trị đầu tư tại khu đô thị phức hợp được nhân lên gấp bội...'
-✅ Đã trả về file âm thanh thành công.
-INFO:     172.19.0.2:57174 - "POST /tts HTTP/1.1" 200 OK
-🎙 Giọng: Doan | Văn bản: 'Giá trị đầu tư tại khu đô thị phức hợp được nhân lên gấp bội...'
-✅ Đã trả về file âm thanh thành công.
-INFO:     172.19.0.2:57176 - "POST /tts HTTP/1.1" 200 OK
-🎙 Giọng: Doan | Văn bản: 'Giá trị đầu tư tại khu đô thị phức hợp được nhân lên gấp bội...'
-✅ Đã trả về file âm thanh thành công.
-INFO:     172.19.0.2:57178 - "POST /tts HTTP/1.1" 200 OK
+INFO:     Uvicorn running on http://0.0.0.0:23333 (Press CTRL+C to quit)
