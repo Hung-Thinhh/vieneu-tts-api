@@ -1024,11 +1024,11 @@ with gr.Blocks(theme=theme, css=css, title="VieNeu-TTS", head=head_html) as demo
             with gr.Row():
                 backbone_select = gr.Dropdown(
                     list(BACKBONE_CONFIGS.keys()) + ["Custom Model"], 
-                    value="VieNeu-TTS (GPU)", 
+                    value="VieNeu-TTS-0.3B-q4-gguf", 
                     label="🦜 Backbone"
                 )
-                codec_select = gr.Dropdown(list(CODEC_CONFIGS.keys()), value="NeuCodec (Distill)", label="🎵 Codec")
-                device_choice = gr.Radio(get_available_devices(), value="Auto", label="🖥️ Device")
+                codec_select = gr.Dropdown(list(CODEC_CONFIGS.keys()), value="NeuCodec ONNX (Fast CPU)", label="🎵 Codec")
+                device_choice = gr.Radio(get_available_devices(), value="CPU", label="🖥️ Device")
             
             with gr.Row(visible=False) as custom_model_group:
                 custom_backbone_model_id = gr.Textbox(
@@ -1055,7 +1055,7 @@ with gr.Blocks(theme=theme, css=css, title="VieNeu-TTS", head=head_html) as demo
             
             with gr.Row():
                 use_lmdeploy_cb = gr.Checkbox(
-                    value=True, 
+                    value=False, 
                     label="🚀 Optimize with LMDeploy (Khuyên dùng cho NVIDIA GPU)",
                     info="Tick nếu bạn dùng GPU để tăng tốc độ tổng hợp đáng kể."
                 )
@@ -1151,7 +1151,7 @@ with gr.Blocks(theme=theme, css=css, title="VieNeu-TTS", head=head_html) as demo
                             info="Độ sáng tạo. Cao = đa dạng cảm xúc hơn nhưng dễ lỗi. Thấp = ổn định hơn."
                         )
                         max_chars_chunk_slider = gr.Slider(
-                            minimum=128, maximum=512, value=256, step=32,
+                            minimum=64, maximum=512, value=128, step=32,
                             label="📝 Max Chars per Chunk",
                             info="Độ dài tối đa mỗi đoạn xử lý."
                         )

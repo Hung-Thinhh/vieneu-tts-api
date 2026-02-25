@@ -170,13 +170,31 @@ async def stream_audio(text: str, voice_id: str = None):
         
         start = time.time()
         count = 0
+        buffer = []
+        buffer_size_ms = 250  # milliseconds to buffer before yielding
+        samples_per_ms = 24  # 24000 Hz / 1000 ms
+        buffer_target_samples = buffer_size_ms * samples_per_ms
+
         try:
             for chunk in tts.infer_stream(text, voice=voice_data):
                 if count == 0:
                      print(f"⚡ First sound in {time.time() - start:.3f}s")
                 count += 1
-                yield float32_to_pcm16(chunk)
-                time.sleep(0.001) 
+                
+                buffer.append(chunk)
+                current_buffered_samples = sum(len(c) for c in buffer)
+                
+                # yield only when buffered enough samples
+                if current_buffered_samples >= buffer_target_samples:
+                    combined_chunk = np.concatenate(buffer)
+                    yield float32_to_pcm16(combined_chunk)
+                    buffer = [] # Reset buffer
+                    time.sleep(0.001) 
+            
+            # Yield any remaining audio at the end
+            if buffer:
+                combined_chunk = np.concatenate(buffer)
+                yield float32_to_pcm16(combined_chunk)
                 
         except Exception as e:
             print(f"Error during inference: {e}")
