@@ -23,3 +23,6 @@ INFO:     172.19.0.2:57174 - "POST /tts HTTP/1.1" 200 OK
 🎙 Giọng: Doan | Văn bản: 'Giá trị đầu tư tại khu đô thị phức hợp được nhân lên gấp bội...'
 ✅ Đã trả về file âm thanh thành công.
 INFO:     172.19.0.2:57176 - "POST /tts HTTP/1.1" 200 OK
+🎙 Giọng: Doan | Văn bản: 'Giá trị đầu tư tại khu đô thị phức hợp được nhân lên gấp bội...'
+✅ Đã trả về file âm thanh thành công.
+INFO:     172.19.0.2:57178 - "POST /tts HTTP/1.1" 200 OK
