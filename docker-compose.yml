@@ -1,10 +1,14 @@
 services:
   vietneu-tts:
-    image: alpine/socat
-    # Chuyển tiếp traffic từ Traefik → cổng 23333 trên máy chủ host
-    command: TCP-LISTEN:23333,fork,reuseaddr TCP:host-gateway:23333
-    extra_hosts:
-      - "host-gateway:host-gateway"
+    image: python:3.11-slim-bookworm
+    working_dir: /app
+    # Lệnh này sẽ tự cài đặt espeak-ng và khởi động API từ code có sẵn trên máy
+    command: >
+      bash -c "apt-get update && apt-get install -y espeak-ng && 
+      pip install uv && uv sync && 
+      PYTHONPATH=src .venv/bin/python run_api_server.py"
+    volumes:
+      - /root/VieNeu-TTS:/app
     restart: always
     networks:
       - dokploy-network
